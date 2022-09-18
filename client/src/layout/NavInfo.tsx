@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
+import { useAppSelector } from "../store/hooks";
 
 const NavInfo = () => {
+  const cartValue = useAppSelector((state) => state.cart.value);
   return (
     <Fragment>
       <div
@@ -11,19 +13,22 @@ const NavInfo = () => {
       >
         <h1>Москва, дом Пушкина 12</h1>
         <h1 className={"pr-5"}>+7 (999) 888-77-66</h1>
-        <h1 className={"pr-5 text-red-600 underline"}>
+        <h1 className={"pr-5 text-red-600 underline animate-pulse"}>
           Бесплатная доставка с 10:00 до 22:00
         </h1>
       </div>
-      <div className={"flex justify-center sm:justify-start"}>
+      <div className={"flex justify-center sm:justify-between"}>
         <NavLink
           to={"/"}
           className={
-            "text-3xl sm:text-left  sm:ml-10 mt-3 sm: mb-4 mr-6 font-mono text-red-600"
+            "sm:text-4xl text-2xl sm:text-left sm:ml-10 mt-3 sm:mb-4 mr-6 font-mono font-bold text-red-600"
           }
         >
           Krusty Krab 🦀
         </NavLink>
+        <button className={"sm:mr-20 mt-3 text-xl"}>
+          Корзина {cartValue} руб
+        </button>
       </div>
     </Fragment>
   );
