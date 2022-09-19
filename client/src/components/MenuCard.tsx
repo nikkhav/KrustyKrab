@@ -1,6 +1,10 @@
 import React from "react";
-import { useAppDispatch } from "../store/hooks";
-import { addItemPrice } from "../store/slices/cartSlice";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import {
+  addItem,
+  addItemPrice,
+  increaseAmount,
+} from "../store/slices/cartSlice";
 
 interface MenuProps {
   title: string;
@@ -12,10 +16,22 @@ interface MenuProps {
 
 const MenuCard: React.FC<MenuProps> = ({ title, price, image }) => {
   const dispatch = useAppDispatch();
+  const order = useAppSelector((state) => state.cart.order);
+  let id = Math.random();
+
+  const handleAddItem = () => {
+    dispatch(addItemPrice(price));
+    if (order.find((item: any) => item.title === title)) {
+      console.log(title);
+      dispatch(increaseAmount(title));
+    } else {
+      dispatch(addItem({ id, title, price, image, amount: 1 }));
+    }
+  };
   return (
-    <div className={"flex flex-col h-80 w-72 mx-5 my-8 p-2 items-center"}>
+    <div className={"flex flex-col h-80 w-72 mx-5 mb-28 p-2 items-center"}>
       <img
-        className={"h-52 w-full rounded-xl"}
+        className={"h-72 w-full rounded-xl"}
         src={image}
         alt={"Фото блюда"}
       />
@@ -23,7 +39,7 @@ const MenuCard: React.FC<MenuProps> = ({ title, price, image }) => {
 
       <p className={""}>{price} руб</p>
       <button
-        onClick={() => dispatch(addItemPrice(price))}
+        onClick={handleAddItem}
         className={
           "border-2 border-amber-100 hover:bg-amber-50 rounded-md px-2 py-2 mt-2.5"
         }

@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../store/hooks";
+import { MdShoppingBag } from "react-icons/md";
 
 const NavInfo = () => {
   const cartValue = useAppSelector((state) => state.cart.value);
@@ -26,9 +27,11 @@ const NavInfo = () => {
         >
           Krusty Krab 🦀
         </NavLink>
-        <button className={"sm:mr-20 mt-3 text-xl"}>
-          Корзина {cartValue} руб
-        </button>
+        <NavLink to={"/cart"} className={"sm:mr-20 mt-3 text-2xl"}>
+          <div className={"flex flex-row"}>
+            <MdShoppingBag className={"mt-1 mr-2"} /> {cartValue} руб
+          </div>
+        </NavLink>
       </div>
     </Fragment>
   );

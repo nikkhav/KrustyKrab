@@ -6,6 +6,7 @@ import MenuPage from "./pages/MenuPage";
 import AboutPage from "./pages/AboutPage";
 import DeliveryPage from "./pages/DeliveryPage";
 import ContactPage from "./pages/ContactPage";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path={"/about"} element={<AboutPage />} />
         <Route path={"/contact"} element={<ContactPage />} />
         <Route path={"/delivery"} element={<DeliveryPage />} />
+        <Route path={"/cart"} element={<CartPage />} />
         <Route path={"*"} element={<Navigate to={"/"} replace={true} />} />
       </Routes>
     </Fragment>

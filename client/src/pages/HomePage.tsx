@@ -46,7 +46,7 @@ const HomePage = () => {
               "sm:object-scale-down object-fill w-10/12 h-full sm:h-72 sm:w-100"
             }
             src={aboutImage}
-            alt={"about image"}
+            alt={"About us"}
           />
         </div>
       </section>
