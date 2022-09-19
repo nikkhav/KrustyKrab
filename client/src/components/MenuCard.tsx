@@ -6,26 +6,25 @@ import {
   increaseAmount,
 } from "../store/slices/cartSlice";
 
-interface MenuProps {
+export interface MenuProps {
   title: string;
   price: number;
   image: string;
   type: string;
-  description?: string;
+  description: string;
+  _id: string;
 }
 
-const MenuCard: React.FC<MenuProps> = ({ title, price, image }) => {
+const MenuCard: React.FC<MenuProps> = ({ title, price, image, _id, type }) => {
   const dispatch = useAppDispatch();
   const order = useAppSelector((state) => state.cart.order);
-  let id = Math.random();
 
   const handleAddItem = () => {
     dispatch(addItemPrice(price));
     if (order.find((item: any) => item.title === title)) {
-      console.log(title);
       dispatch(increaseAmount(title));
     } else {
-      dispatch(addItem({ id, title, price, image, amount: 1 }));
+      dispatch(addItem({ _id, title, price, image, amount: 1, type }));
     }
   };
   return (

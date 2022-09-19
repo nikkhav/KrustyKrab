@@ -4,7 +4,7 @@ import NavInfo from "./NavInfo";
 
 const Header = () => {
   return (
-    <header className={"flex flex-col fixed w-full sm:h-44 h-24 z-10 bg-white"}>
+    <header className={"flex flex-col w-full sm:h-40 h-24 z-10 bg-white"}>
       <NavInfo />
       <NavBar />
     </header>

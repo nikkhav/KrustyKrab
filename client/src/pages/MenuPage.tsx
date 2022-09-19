@@ -1,36 +1,33 @@
-import React from "react";
-import pizzaImage from "../assets/images/60bdf5f9dc54e.jpg";
-import saladImage from "../assets/images/62e7c2563bb61.png";
-import sushiImage from "../assets/images/614dbed50c0da.jpg";
-import burgerImage from "../assets/images/6221fff081b96.jpg";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { MenuProps } from "../components/MenuCard";
 import MenuCard from "../components/MenuCard";
 
 const MenuPage = () => {
+  const [menu, setMenu] = useState<[]>([]);
+
+  const getMenu = async () => {
+    const response = await axios.get("http://localhost:4000/api/v1/menu");
+    setMenu(response.data.data["menuItems"]);
+  };
+
+  useEffect(() => {
+    getMenu();
+  }, []);
+
   return (
     <div className={"flex flex-row flex-wrap justify-evenly"}>
-      <MenuCard
-        title={"Пицца"}
-        image={pizzaImage}
-        type={"pizza"}
-        price={1000}
-      />
-      <MenuCard title={"Суши"} image={sushiImage} type={"sushi"} price={900} />
-      <MenuCard
-        title={"Салат цезарь"}
-        image={saladImage}
-        type={"salad"}
-        price={600}
-      />
-      <MenuCard
-        title={"Чизбургер"}
-        image={burgerImage}
-        type={"burger"}
-        price={550}
-      />
-      <MenuCard title={"Пицца"} image={pizzaImage} type={"pizza"} price={600} />
-      <MenuCard title={"Пицца"} image={pizzaImage} type={"pizza"} price={600} />
-      <MenuCard title={"Пицца"} image={pizzaImage} type={"pizza"} price={600} />
-      <MenuCard title={"Пицца"} image={pizzaImage} type={"pizza"} price={600} />
+      {menu.map((item: MenuProps) => (
+        <MenuCard
+          _id={item._id}
+          title={item.title}
+          description={item.description}
+          image={item.image}
+          price={item.price}
+          type={item.type}
+          key={item._id}
+        />
+      ))}
     </div>
   );
 };

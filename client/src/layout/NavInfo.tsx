@@ -5,6 +5,7 @@ import { MdShoppingBag } from "react-icons/md";
 
 const NavInfo = () => {
   const cartValue = useAppSelector((state) => state.cart.value);
+  const numberOfItems = useAppSelector((state) => state.cart.numberOfItems);
   return (
     <Fragment>
       <div
@@ -29,7 +30,8 @@ const NavInfo = () => {
         </NavLink>
         <NavLink to={"/cart"} className={"sm:mr-20 mt-3 text-2xl"}>
           <div className={"flex flex-row"}>
-            <MdShoppingBag className={"mt-1 mr-2"} /> {cartValue} руб
+            <MdShoppingBag className={"mt-1 mr-2"} /> {numberOfItems} / {""}
+            {cartValue} руб
           </div>
         </NavLink>
       </div>

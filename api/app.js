@@ -3,6 +3,8 @@ const app = express();
 const morgan = require("morgan");
 const cors = require("cors");
 
+const menuRouter = require("./routes/menuRoutes");
+
 // Middlewares
 app.use(morgan("dev"));
 app.use(cors());
@@ -14,12 +16,6 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.get("/", (req, res) => {
-  res.status(200).json({
-    status: "success",
-    message: "Krusty Krab API",
-    requestedAt: req.requestTime,
-  });
-});
+app.use("/api/v1/menu", menuRouter);
 
 module.exports = app;
