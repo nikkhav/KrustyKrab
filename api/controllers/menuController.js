@@ -34,3 +34,38 @@ exports.createMenuItem = async (req, res) => {
     });
   }
 };
+
+exports.getMenuItem = async (req, res) => {
+  try {
+    const menuItem = await MenuItem.findById(req.params.id);
+    res.status(200).json({
+      status: "success",
+      data: {
+        menuItem,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};
+
+exports.getByCategory = async (req, res) => {
+  try {
+    const menuItems = await MenuItem.find({ type: req.params.type });
+    res.status(200).json({
+      status: "success",
+      results: menuItems.length,
+      data: {
+        menuItems,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};
