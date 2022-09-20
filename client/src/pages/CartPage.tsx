@@ -37,7 +37,7 @@ const CartPage = () => {
             </div>
           </div>
           <div className={"flex flex-col px-4"}>
-            <h1 className={"text-xl sm:hidden visible"}>{item.price} руб</h1>
+            <h1 className={"text-xl text-center"}>{item.price} руб</h1>
             <h1 className={"text-xl"}>Количество: {item.amount}</h1>
             <div className={"flex flex-row justify-center"}>
               <button

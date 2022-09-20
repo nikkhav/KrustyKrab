@@ -34,7 +34,6 @@ const ItemDetailedPage = () => {
     if (order.find((dish: any) => dish.title === item.title)) {
       dispatch(increaseAmount(item.title));
     } else {
-      //dispatch(addItem({ _id, title, price, image, amount: 1, type }));
       dispatch(
         addItem({
           _id: item._id,
