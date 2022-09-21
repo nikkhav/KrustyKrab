@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { MenuProps } from "../components/MenuItem";
+import { MenuProps } from "../../components/MenuItem";
 import {
   addItem,
   addItemPrice,
   increaseAmount,
-} from "../store/slices/cartSlice";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
+} from "../../store/slices/cartSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 const ItemDetailedPage = () => {
   const { itemId } = useParams();
@@ -52,7 +52,7 @@ const ItemDetailedPage = () => {
   }, []);
 
   return (
-    <div className={"flex sm:flex-row flex-col justify-around"}>
+    <div className={"flex sm:flex-row flex-col justify-around mt-20"}>
       <div className={"flex flex-col mx-10 sm:mb-28 mb-10"}>
         <img
           className={"h-96 w-96 rounded-xl"}

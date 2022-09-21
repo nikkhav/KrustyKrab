@@ -1,10 +1,10 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
   increaseAmount,
   removeItem,
   addItemPrice,
-} from "../store/slices/cartSlice";
+} from "../../store/slices/cartSlice";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const CartPage = () => {
@@ -15,6 +15,7 @@ const CartPage = () => {
 
   return (
     <div>
+      <div className={"w-full sm:h-20"} />
       {order.map((item: any) => (
         <div
           className={

@@ -6,6 +6,7 @@ const HomePage = () => {
   return (
     <Fragment>
       {/*Main Image*/}
+      <div className={"w-full sm:h-28"} />
       <div className={"flex mx-auto my-auto relative"}>
         <img
           className={

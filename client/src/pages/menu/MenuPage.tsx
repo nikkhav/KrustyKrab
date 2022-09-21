@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { MenuProps } from "../components/MenuItem";
-import MenuItem from "../components/MenuItem";
+import { MenuProps } from "../../components/MenuItem";
+import MenuItem from "../../components/MenuItem";
 
 const MenuPage = () => {
   const [menu, setMenu] = useState<[]>([]);
@@ -24,6 +24,7 @@ const MenuPage = () => {
 
   return (
     <div className={"flex flex-col"}>
+      <div className={"w-full sm:h-16"} />
       <div className={"flex flex-row flex-wrap justify-center mb-10"}>
         <button
           className={

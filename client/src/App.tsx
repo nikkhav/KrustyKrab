@@ -2,19 +2,19 @@ import React, { Fragment } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Header from "./layout/Header";
 import HomePage from "./pages/HomePage";
-import MenuPage from "./pages/MenuPage";
+import MenuPage from "./pages/menu/MenuPage";
 import AboutPage from "./pages/AboutPage";
 import DeliveryPage from "./pages/DeliveryPage";
 import ContactPage from "./pages/ContactPage";
-import CartPage from "./pages/CartPage";
-import CheckoutPage from "./pages/CheckoutPage";
-import ItemDetailedPage from "./pages/ItemDetailedPage";
+import CartPage from "./pages/cart/CartPage";
+import CheckoutPage from "./pages/cart/CheckoutPage";
+import ItemDetailedPage from "./pages/menu/ItemDetailedPage";
 
 function App() {
   return (
     <Fragment>
       <Header />
-      <div className={"w-full sm:h-28"} />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path={"/menu"} element={<MenuPage />} />
