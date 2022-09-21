@@ -14,7 +14,10 @@ const NavInfo = () => {
         }
       >
         <h1>Москва, дом Пушкина 12</h1>
-        <h1 className={"pr-5"}>+7 (999) 888-77-66</h1>
+        {/*<h1 className={"pr-5"}>+7 (999) 888-77-66</h1>*/}
+        <a className={"pr-5"} href={"tel:+79998887766"}>
+          +7 (999) 888-77-66
+        </a>
         <h1 className={"pr-5 text-red-600 underline animate-pulse"}>
           Бесплатная доставка с 10:00 до 22:00
         </h1>

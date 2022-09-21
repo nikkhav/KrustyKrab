@@ -49,7 +49,7 @@ const ItemDetailedPage = () => {
 
   useEffect(() => {
     getItem();
-  }, []);
+  });
 
   return (
     <div className={"flex sm:flex-row flex-col justify-around mt-20"}>

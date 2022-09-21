@@ -12,7 +12,7 @@ const AboutPage = () => {
     >
       <div className={"w-full sm:h-12"} />
       <h1 className={"text-5xl font-bold mb-4 text-red-600"}>Krusty Krab</h1>
-      <p className={"text-3xl text-center font-thin"}>
+      <p className={"sm:text-3xl text-2xl text-center font-thin"}>
         Здесь мясо от лучших российских производителей. Готовим только в
         хоспере. Имеются блюда из серии «все по делу, ничего лишнего», а есть и
         более сложные авторские позиции и что-то совсем нетривиальное.
@@ -20,7 +20,7 @@ const AboutPage = () => {
       <button
         onClick={() => navigate("/menu")}
         className={
-          "bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-8 rounded-2xl mt-10"
+          "bg-green-400 hover:bg-green-500 text-white text-xl font-bold py-4 px-6 rounded-3xl mt-10"
         }
       >
         Сделать заказ
