@@ -37,6 +37,11 @@ export const cartSlice = createSlice({
       state.value += action.payload;
       state.numberOfItems++;
     },
+    clearCart: (state) => {
+      state.value = 0;
+      state.numberOfItems = 0;
+      state.order = [];
+    },
     addItem: (state, action: PayloadAction<Order>) => {
       state.order.push(action.payload);
     },
@@ -60,7 +65,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addItemPrice, addItem, removeItem, increaseAmount } =
+export const { addItemPrice, clearCart, addItem, removeItem, increaseAmount } =
   cartSlice.actions;
 
 export const selectCart = (state: RootState) => state.cart.value;

@@ -31,11 +31,9 @@ const orderSchema = new mongoose.Schema({
   },
   clientPhone: {
     type: String,
-    required: [true, "An order must have a client phone"],
   },
   clientAddress: {
-    type: String,
-    required: [true, "An order must have a client address"],
+    type: Object,
   },
   clientComment: {
     type: String,

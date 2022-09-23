@@ -6,6 +6,7 @@ import {
   addItemPrice,
 } from "../../store/slices/cartSlice";
 import { NavLink, useNavigate } from "react-router-dom";
+import Header from "../../layout/Header";
 
 const CartPage = () => {
   const cartValue = useAppSelector((state) => state.cart.value);
@@ -15,6 +16,7 @@ const CartPage = () => {
 
   return (
     <div>
+      <Header />
       <div className={"w-full sm:h-20"} />
       {order.map((item: any) => (
         <div
@@ -85,10 +87,13 @@ const CartPage = () => {
       ) : (
         <div className={"text-center"}>
           <h1 className={"text-5xl text-center"}>Корзина пуста</h1>
+          <p className={"text-center text-3xl text-green-600 mt-3.5 p-5"}>
+            Самое время исправить это!
+          </p>
           <NavLink to={"/menu"}>
             <button
               className={
-                "text-xl border-2 border-amber-100 hover:bg-amber-50 rounded-md px-2 py-2 mt-20"
+                "text-xl border-2 border-amber-100 hover:bg-amber-50 rounded-md px-4 py-4 mt-10"
               }
             >
               Вернуться в меню

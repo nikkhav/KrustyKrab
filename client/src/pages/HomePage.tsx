@@ -1,12 +1,14 @@
 import React, { Fragment } from "react";
 import background from "../assets/images/kayleigh-harrington-yhn4okt6ci0-unsplash.jpg";
 import aboutImage from "../assets/images/jay-wennington-N_Y88TWmGwA-unsplash.jpg";
+import Header from "../layout/Header";
 
 const HomePage = () => {
   return (
     <Fragment>
       {/*Main Image*/}
-      <div className={"w-full sm:h-28"} />
+      <Header />
+      <div className={"w-full sm:h-28 xl:h-32"} />
       <div className={"flex mx-auto my-auto relative"}>
         <img
           className={
