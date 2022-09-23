@@ -77,7 +77,7 @@ const CartPage = () => {
           <NavLink to={"/checkout"}>
             <button
               className={
-                "w-full mx-auto sm:mb-20 mb-10 p-4 bg-green-400 rounded-xl hover:bg-green-500"
+                "w-full mx-auto sm:mb-20 mb-10 p-4 text-white text-xl bg-green-500 rounded-xl hover:bg-green-600"
               }
             >
               Оформить заказ

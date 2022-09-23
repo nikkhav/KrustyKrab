@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../store/hooks";
+import { login } from "../store/slices/adminSlice";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -17,7 +22,8 @@ const AdminLogin = () => {
         }
       );
       if (response.status === 200) {
-        console.log(response.data);
+        dispatch(login(response.data.data.admin.name));
+        navigate("/admin/orders");
       }
     } catch (err: any) {
       setError(err.response.data.message);

@@ -46,6 +46,13 @@ const CheckoutPage = () => {
     comment: "",
   });
 
+  function addZero(i: any) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+
   const formValidator = () => {
     if (
       formState.clientName.length > 0 &&
@@ -85,7 +92,8 @@ const CheckoutPage = () => {
             orderItems: orderItems,
             orderTotal: cartValue,
             orderDate: todayDate,
-            orderTime: today.getHours() + ":" + today.getMinutes(),
+            orderTime:
+              addZero(today.getHours()) + ":" + addZero(today.getMinutes()),
             clientName: formState.clientName,
             clientComment: formState.comment,
           }
