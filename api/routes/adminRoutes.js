@@ -7,7 +7,11 @@ router
   .route("/orders")
   .get(orderController.getAllOrders)
   .post(orderController.createOrder);
-router.route("/orders/:id").get(orderController.getOrder);
+router
+  .route("/orders/:id")
+  .get(orderController.getOrder)
+  .patch(orderController.changeOrderStatus)
+  .delete(orderController.deleteOrder);
 
 router.route("/login").post(adminController.loginAdmin);
 router.route("/register").post(adminController.createAdmin);

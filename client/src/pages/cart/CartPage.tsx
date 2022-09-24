@@ -44,15 +44,6 @@ const CartPage = () => {
             <h1 className={"text-xl"}>Количество: {item.amount}</h1>
             <div className={"flex flex-row justify-center"}>
               <button
-                className={"px-4 py-1 mt-2 text-3xl"}
-                onClick={() => {
-                  dispatch(increaseAmount(item.title));
-                  dispatch(addItemPrice(item.price));
-                }}
-              >
-                +
-              </button>
-              <button
                 className={"px-4 py-1 mt-2 text-5xl"}
                 onClick={() =>
                   dispatch(
@@ -64,6 +55,15 @@ const CartPage = () => {
                 }
               >
                 -
+              </button>
+              <button
+                className={"px-4 py-1 mt-2 text-3xl"}
+                onClick={() => {
+                  dispatch(increaseAmount(item.title));
+                  dispatch(addItemPrice(item.price));
+                }}
+              >
+                +
               </button>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppSelector } from "../store/hooks";
 import { useNavigate } from "react-router-dom";
 import { FiArrowDown } from "react-icons/fi";
@@ -51,13 +51,17 @@ const AdminOrders = () => {
   // Orders state
 
   useEffect(() => {
-    setInterval(() => {
+    getOrders();
+    const interval = setInterval(() => {
       getOrders();
     }, 5000);
+    return () => clearInterval(interval);
   }, []);
   return (
     <div>
-      <h1 className={"text-xl mt-5 ml-10"}>Здравствуйте, {name}</h1>
+      <h1 className={"text-xl text-center sm:text-left mt-5 sm:ml-10"}>
+        Здравствуйте, {name}
+      </h1>
       <div className={"mx-auto text-center mt-20"}>
         <h1 className={"sm:text-5xl text-3xl font-mono text-center"}>Заказы</h1>
       </div>
@@ -67,48 +71,51 @@ const AdminOrders = () => {
             onClick={() => navigate(`/admin/orders/${order._id}`)}
             key={order._id}
             className={
-              "flex flex-col flex-wrap justify-evenly items-center border-2 rounded-xl mt-5 p-10 hover:bg-gray-100 cursor-pointer"
+              "flex flex-col flex-wrap justify-evenly items-center border-2 rounded-xl mt-5 p-10 pt-5 hover:bg-gray-100 cursor-pointer"
             }
           >
             <div className={"flex flex-row"}>
-              <h2 className={"text-xl pb-4 font-medium tracking-wider"}>
-                {order.delivery ? (
-                  <h2 className={"text-2xl font-bold"}>Доставка</h2>
-                ) : (
-                  <h2 className={"text-2xl font-bold"}>С собой</h2>
-                )}
-              </h2>
+              {order.delivery ? (
+                <h2 className={"text-2xl font-bold"}>Доставка</h2>
+              ) : (
+                <h2 className={"text-2xl font-bold"}>С собой</h2>
+              )}
+
               <FiArrowDown className={"text-2xl mt-1 ml-4"} />
             </div>
-            <div className={"flex flex-row"}>
-              <h2 className={"text-2xl pt-2 px-4"}>
+            <div className={"flex sm:flex-row flex-col items-center"}>
+              <h2 className={"text-2xl text-center pt-2 px-4"}>
                 Имя клиента : {order.clientName}
               </h2>
-              <h2 className={"text-2xl pt-2 px-4"}>
+              <h2 className={"text-2xl text-center pt-2 px-4"}>
                 Позиций: {order.orderItems.length}
               </h2>
-              <h2 className={"text-2xl pt-2 px-4"}>
+              <h2 className={"text-2xl text-center pt-2 px-4"}>
                 Сумма: {order.orderTotal} руб.
               </h2>
               {order.clientComment && (
-                <h2 className={"text-2xl pt-2 px-4"}>
+                <h2 className={"text-2xl text-center pt-2 px-4"}>
                   Комментарий: {order.clientComment}
                 </h2>
               )}
               {order.clientPhone && (
-                <h2 className={"text-2xl pt-2 px-4"}>
+                <h2 className={"text-2xl text-center pt-2 px-4"}>
                   Телефон: {order.clientPhone}
                 </h2>
               )}
             </div>
-            <div className={"flex flex-row"}>
+            <div className={"flex sm:flex-row sm:pt-5 flex-col items-center"}>
               <h2 className={"text-2xl pt-2 px-4"}>
                 Статус: {order.orderStatus}
               </h2>
-              <h2 className={"text-2xl pt-2 px-4"}>Дата: {order.orderDate}</h2>
-              <h2 className={"text-2xl pt-2 px-4"}>Время: {order.orderTime}</h2>
+              <h2 className={"text-2xl text-center pt-2 px-4"}>
+                Дата: {order.orderDate}
+              </h2>
+              <h2 className={"text-2xl text-center pt-2 px-4"}>
+                Время: {order.orderTime}
+              </h2>
               {order.clientAddress && (
-                <h2 className={"text-xl pt-2 px-4"}>
+                <h2 className={"text-xl text-center pt-2 px-4"}>
                   Адрес:{" "}
                   {order.clientAddress?.street +
                     ", дом " +
