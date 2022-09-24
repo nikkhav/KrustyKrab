@@ -31,6 +31,9 @@ export interface Order {
 
 const AdminOrders = () => {
   const [orders, setOrders] = useState<Order[]>([]);
+  const [request, setRequest] = useState<string>(
+    "http://127.0.0.1:4000/api/v1/admin/orders"
+  );
   // If user is not logged in, redirect to login page
   const loggedIn = useAppSelector((state) => state.admin.loggedIn);
   const name = useAppSelector((state) => state.admin.name);
@@ -42,12 +45,9 @@ const AdminOrders = () => {
   }, [loggedIn]);
 
   const getOrders = async () => {
-    const response = await axios.get(
-      "http://127.0.0.1:4000/api/v1/admin/orders"
-    );
+    const response = await axios.get(request);
     setOrders(response.data.data.orders);
   };
-  // Orders are fetched in AdminOrdersList component
   // Orders state
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const AdminOrders = () => {
       getOrders();
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [request]);
   return (
     <div>
       <h1 className={"text-xl text-center sm:text-left mt-5 sm:ml-10"}>
@@ -65,7 +65,65 @@ const AdminOrders = () => {
       <div className={"mx-auto text-center mt-20"}>
         <h1 className={"sm:text-5xl text-3xl font-mono text-center"}>Заказы</h1>
       </div>
-      <div className={"flex flex-col-reverse p-10 mx-auto mt-5"}>
+      <div className={"flex flex-row justify-center mt-10"}>
+        <button
+          onClick={() =>
+            setRequest("http://127.0.0.1:4000/api/v1/admin/orders")
+          }
+          className={
+            "text-xl font-semibold mx-5 px-8 py-3 bg-amber-300 hover:bg-amber-400 rounded-3xl"
+          }
+        >
+          Все
+        </button>
+        <button
+          onClick={() =>
+            setRequest("http://127.0.0.1:4000/api/v1/admin/orders/byStatus/new")
+          }
+          className={
+            "text-xl font-semibold mx-5 px-5 py-3 bg-amber-300 hover:bg-amber-400 rounded-3xl"
+          }
+        >
+          Новые
+        </button>
+        <button
+          onClick={() =>
+            setRequest(
+              "http://127.0.0.1:4000/api/v1/admin/orders/byStatus/processed"
+            )
+          }
+          className={
+            "text-xl font-semibold mx-5 px-5 py-3 bg-amber-300 hover:bg-amber-400 rounded-3xl"
+          }
+        >
+          В работе
+        </button>
+        <button
+          onClick={() =>
+            setRequest(
+              "http://127.0.0.1:4000/api/v1/admin/orders/byStatus/completed"
+            )
+          }
+          className={
+            "text-xl font-semibold mx-5 px-5 py-3 bg-amber-300 hover:bg-amber-400 rounded-3xl"
+          }
+        >
+          Выполненные
+        </button>
+        <button
+          onClick={() =>
+            setRequest(
+              "http://127.0.0.1:4000/api/v1/admin/orders/byStatus/canceled"
+            )
+          }
+          className={
+            "text-xl font-semibold mx-5 px-5 py-3 bg-amber-300 hover:bg-amber-400 rounded-3xl"
+          }
+        >
+          Отменённые
+        </button>
+      </div>
+      <div className={"flex flex-col-reverse p-10 pt-5 mx-auto mt-5"}>
         {orders.map((order) => (
           <div
             onClick={() => navigate(`/admin/orders/${order._id}`)}
@@ -106,7 +164,11 @@ const AdminOrders = () => {
             </div>
             <div className={"flex sm:flex-row sm:pt-5 flex-col items-center"}>
               <h2 className={"text-2xl pt-2 px-4"}>
-                Статус: {order.orderStatus}
+                Статус: {""}
+                {order.orderStatus === "completed" ? "Выполнен ✅" : ""}
+                {order.orderStatus === "processed" ? "В работе 🧑‍🍳" : ""}
+                {order.orderStatus === "canceled" ? "Отменен ❌" : ""}
+                {order.orderStatus === "new" ? "Новый 🆕" : ""}
               </h2>
               <h2 className={"text-2xl text-center pt-2 px-4"}>
                 Дата: {order.orderDate}

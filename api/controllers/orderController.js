@@ -88,3 +88,21 @@ exports.deleteOrder = async (req, res) => {
     });
   }
 };
+
+exports.getOrdersByStatus = async (req, res) => {
+  try {
+    const orders = await Order.find({ orderStatus: req.params.status });
+    res.status(200).json({
+      status: "success",
+      results: orders.length,
+      data: {
+        orders,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};

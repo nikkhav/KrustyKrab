@@ -23,7 +23,7 @@ const orderSchema = new mongoose.Schema({
   },
   orderStatus: {
     type: String,
-    default: "Принят",
+    default: "new",
   },
   clientName: {
     type: String,

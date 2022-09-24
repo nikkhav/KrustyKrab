@@ -13,6 +13,8 @@ router
   .patch(orderController.changeOrderStatus)
   .delete(orderController.deleteOrder);
 
+router.route("/orders/byStatus/:status").get(orderController.getOrdersByStatus);
+
 router.route("/login").post(adminController.loginAdmin);
 router.route("/register").post(adminController.createAdmin);
 router.route("/admins").get(adminController.getAllAdmins);

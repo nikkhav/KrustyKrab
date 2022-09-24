@@ -75,7 +75,10 @@ const AdminOrderDetailed = () => {
               "sm:text-3xl text-2xl sm:ml-10 mt-3.5 sm:mt-0 text-center"
             }
           >
-            Статус: {order.orderStatus}
+            Статус: {order.orderStatus === "completed" ? "Выполнен ✅" : ""}
+            {order.orderStatus === "processed" ? "В работе 🧑‍🍳" : ""}
+            {order.orderStatus === "canceled" ? "Отменен ❌" : ""}
+            {order.orderStatus === "new" ? "Новый 🆕" : ""}
           </h1>
         </div>
         <div className={"flex sm:flex-row flex-col mx-auto mt-8"}>
@@ -152,7 +155,7 @@ const AdminOrderDetailed = () => {
               axios.patch(
                 `http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`,
                 {
-                  orderStatus: "Выполнен ✅",
+                  orderStatus: "completed",
                 }
               );
             }}
@@ -167,7 +170,7 @@ const AdminOrderDetailed = () => {
               axios.patch(
                 `http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`,
                 {
-                  orderStatus: "В работе 🧑‍🍳",
+                  orderStatus: "processed",
                 }
               );
             }}
@@ -182,7 +185,7 @@ const AdminOrderDetailed = () => {
               axios.patch(
                 `http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`,
                 {
-                  orderStatus: "Отменён ❌",
+                  orderStatus: "canceled",
                 }
               );
             }}
