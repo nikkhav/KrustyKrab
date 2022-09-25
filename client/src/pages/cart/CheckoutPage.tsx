@@ -78,7 +78,8 @@ const CheckoutPage = () => {
             orderItems: orderItems,
             orderTotal: cartValue,
             orderDate: todayDate,
-            orderTime: today.getHours() + ":" + today.getMinutes(),
+            orderTime:
+              addZero(today.getHours()) + ":" + addZero(today.getMinutes()),
             clientName: formState.clientName,
             clientPhone: formState.phone,
             clientAddress: {

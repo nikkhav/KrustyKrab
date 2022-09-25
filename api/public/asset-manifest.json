@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.5f651fea.css",
-    "main.js": "/static/js/main.76cb1abf.js",
+    "main.js": "/static/js/main.941d334f.js",
     "static/media/kayleigh-harrington-yhn4okt6ci0-unsplash.jpg": "/static/media/kayleigh-harrington-yhn4okt6ci0-unsplash.66640288e9d3b52ac5d3.jpg",
     "static/media/jay-wennington-N_Y88TWmGwA-unsplash.jpg": "/static/media/jay-wennington-N_Y88TWmGwA-unsplash.3d2794dc83c9f6633434.jpg",
     "index.html": "/index.html",
     "main.5f651fea.css.map": "/static/css/main.5f651fea.css.map",
-    "main.76cb1abf.js.map": "/static/js/main.76cb1abf.js.map"
+    "main.941d334f.js.map": "/static/js/main.941d334f.js.map"
   },
   "entrypoints": [
     "static/css/main.5f651fea.css",
-    "static/js/main.76cb1abf.js"
+    "static/js/main.941d334f.js"
   ]
 }
