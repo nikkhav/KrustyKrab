@@ -25,7 +25,8 @@ const ItemDetailedPage = () => {
 
   const getItem = async () => {
     const response = await axios.get(
-      `http://localhost:4000/api/v1/menu/${itemId}`
+      //`http://localhost:4000/api/v1/menu/${itemId}`
+      `/api/v1/menu/${itemId}`
     );
     setItem(response.data.data["menuItem"]);
   };
@@ -50,7 +51,7 @@ const ItemDetailedPage = () => {
 
   useEffect(() => {
     getItem();
-  });
+  }, []);
 
   return (
     <Fragment>

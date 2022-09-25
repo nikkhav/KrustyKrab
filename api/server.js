@@ -11,6 +11,4 @@ mongoose
   })
   .then(() => console.log("DB connection successful"));
 
-app.listen(port, () => {
-  console.log(`Krusty Krab API running on port ${port}`);
-});
+app.listen(port);

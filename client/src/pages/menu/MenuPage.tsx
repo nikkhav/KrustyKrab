@@ -8,13 +8,17 @@ const MenuPage = () => {
   const [menu, setMenu] = useState<[]>([]);
 
   const getMenu = async () => {
-    const response = await axios.get("http://localhost:4000/api/v1/menu");
+    const response = await axios.get(
+      //"http://localhost:4000/api/v1/menu"
+      "/api/v1/menu"
+    );
     setMenu(response.data.data["menuItems"]);
   };
 
   const getMenuByType = async (type: string) => {
     const response = await axios.get(
-      `http://localhost:4000/api/v1/menu/byCategory/${type}`
+      //`http://localhost:4000/api/v1/menu/byCategory/${type}`
+      `/api/v1/menu/byCategory/${type}`
     );
     setMenu(response.data.data["menuItems"]);
   };

@@ -70,7 +70,8 @@ const CheckoutPage = () => {
   const sendOrder = async () => {
     if (!formIsValid) return;
     const response = await axios.post(
-      "http://127.0.0.1:4000/api/v1/admin/orders",
+      //"http://127.0.0.1:4000/api/v1/admin/orders",
+      "/api/v1/admin/orders",
       delivery
         ? {
             delivery: delivery,
@@ -98,7 +99,7 @@ const CheckoutPage = () => {
             clientComment: formState.comment,
           }
     );
-    if (response.status == 201) {
+    if (response.status === 201) {
       console.log("Заказ успешно создан");
       navigate("/order-success");
     } else {

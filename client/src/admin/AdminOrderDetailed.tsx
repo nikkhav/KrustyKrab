@@ -36,7 +36,8 @@ const AdminOrderDetailed = () => {
 
   const getOrder = async () => {
     axios
-      .get(`http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`)
+      //.get(`http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`)
+      .get(`/api/v1/admin/orders/${orderId}`)
       .then((res) => {
         setOrder(res.data.data.order);
       });
@@ -153,7 +154,8 @@ const AdminOrderDetailed = () => {
           <button
             onClick={() => {
               axios.patch(
-                `http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`,
+                //`http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`,
+                `/api/v1/admin/orders/${orderId}`,
                 {
                   orderStatus: "completed",
                 }
@@ -168,7 +170,8 @@ const AdminOrderDetailed = () => {
           <button
             onClick={() => {
               axios.patch(
-                `http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`,
+                //`http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`,
+                `/api/v1/admin/orders/${orderId}`,
                 {
                   orderStatus: "processed",
                 }
@@ -183,7 +186,8 @@ const AdminOrderDetailed = () => {
           <button
             onClick={() => {
               axios.patch(
-                `http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`,
+                //`http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`,
+                `/api/v1/admin/orders/${orderId}`,
                 {
                   orderStatus: "canceled",
                 }
@@ -199,7 +203,8 @@ const AdminOrderDetailed = () => {
           <button
             onClick={async () => {
               const response = await axios.delete(
-                `http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`
+                //`http://127.0.0.1:4000/api/v1/admin/orders/${orderId}`
+                `/api/v1/admin/orders/${orderId}`
               );
               if (response.status === 204) {
                 navigate("/admin/orders");
@@ -215,7 +220,6 @@ const AdminOrderDetailed = () => {
       </div>
     </div>
   );
-  // TODO: add order status change and delete order
 };
 
 export default AdminOrderDetailed;

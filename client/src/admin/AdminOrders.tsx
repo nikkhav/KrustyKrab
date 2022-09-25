@@ -32,7 +32,8 @@ export interface Order {
 const AdminOrders = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [request, setRequest] = useState<string>(
-    "http://127.0.0.1:4000/api/v1/admin/orders"
+    //"http://127.0.0.1:4000/api/v1/admin/orders"
+    "/api/v1/admin/orders"
   );
   // If user is not logged in, redirect to login page
   const loggedIn = useAppSelector((state) => state.admin.loggedIn);
@@ -68,7 +69,8 @@ const AdminOrders = () => {
       <div className={"flex flex-row justify-center mt-10"}>
         <button
           onClick={() =>
-            setRequest("http://127.0.0.1:4000/api/v1/admin/orders")
+            //setRequest("http://127.0.0.1:4000/api/v1/admin/orders")
+            setRequest("/api/v1/admin/orders")
           }
           className={
             "text-xl font-semibold mx-5 px-8 py-3 bg-amber-300 hover:bg-amber-400 rounded-3xl"
@@ -78,7 +80,8 @@ const AdminOrders = () => {
         </button>
         <button
           onClick={() =>
-            setRequest("http://127.0.0.1:4000/api/v1/admin/orders/byStatus/new")
+            //setRequest("http://127.0.0.1:4000/api/v1/admin/orders/byStatus/new")
+            setRequest("/api/v1/admin/orders/byStatus/new")
           }
           className={
             "text-xl font-semibold mx-5 px-5 py-3 bg-amber-300 hover:bg-amber-400 rounded-3xl"
@@ -89,7 +92,8 @@ const AdminOrders = () => {
         <button
           onClick={() =>
             setRequest(
-              "http://127.0.0.1:4000/api/v1/admin/orders/byStatus/processed"
+              //"http://127.0.0.1:4000/api/v1/admin/orders/byStatus/processed"
+              "/api/v1/admin/orders/byStatus/processed"
             )
           }
           className={
@@ -101,7 +105,8 @@ const AdminOrders = () => {
         <button
           onClick={() =>
             setRequest(
-              "http://127.0.0.1:4000/api/v1/admin/orders/byStatus/completed"
+              //"http://127.0.0.1:4000/api/v1/admin/orders/byStatus/completed"
+              "/api/v1/admin/orders/byStatus/completed"
             )
           }
           className={
@@ -113,7 +118,8 @@ const AdminOrders = () => {
         <button
           onClick={() =>
             setRequest(
-              "http://127.0.0.1:4000/api/v1/admin/orders/byStatus/canceled"
+              //"http://127.0.0.1:4000/api/v1/admin/orders/byStatus/canceled"
+              "/api/v1/admin/orders/byStatus/canceled"
             )
           }
           className={

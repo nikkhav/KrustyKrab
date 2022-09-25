@@ -13,9 +13,6 @@ const DeliveryPage = () => {
         </div>
         <div className={"flex flex-row justify-around "}>
           <div className={"flex flex-col mt-5 justify-center items-center"}>
-            {/*<h2 className={"sm:text-2xl text-xl text-center font-thin pt-3"}>*/}
-            {/*  Телефон: +7 495 123 45 67*/}
-            {/*</h2>*/}
             <a
               href={"tel:+7 495 123 45 67"}
               className={"sm:text-3xl text-xl text-center font-thin pt-3"}
