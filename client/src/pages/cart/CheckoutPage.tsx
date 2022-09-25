@@ -209,29 +209,6 @@ const CheckoutPage = () => {
                   />
                 </div>
                 <div className={"flex flex-col items-center justify-center"}>
-                  <label className={"text-xl py-2"}>Этаж и квартира*</label>
-                  <input
-                    className={`py-2 px-8 rounded-3xl border-2 border-gray-100 shadow shadow-gray-200 ${
-                      wasSubmitted && formState.flatAndFloor.length < 3
-                        ? "border-red-500"
-                        : ""
-                    }`}
-                    type="text"
-                    placeholder={"Номер квартиры и этаж"}
-                    value={formState.flatAndFloor}
-                    onChange={(e) =>
-                      setFormState({
-                        ...formState,
-                        flatAndFloor: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-              </div>
-              <div
-                className={"flex flex-col items-center justify-center mt-3.5"}
-              >
-                <div className={"flex flex-col items-center justify-center"}>
                   <label className={"text-xl py-2"}>Дом*</label>
                   <input
                     className={`py-2 px-8 rounded-3xl border-2 border-gray-100 shadow shadow-gray-200 ${
@@ -246,6 +223,29 @@ const CheckoutPage = () => {
                       setFormState({
                         ...formState,
                         house: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+              </div>
+              <div
+                className={"flex flex-col items-center justify-center mt-3.5"}
+              >
+                <div className={"flex flex-col items-center justify-center"}>
+                  <label className={"text-xl py-2"}>Этаж и квартира*</label>
+                  <input
+                    className={`py-2 px-8 rounded-3xl border-2 border-gray-100 shadow shadow-gray-200 ${
+                      wasSubmitted && formState.flatAndFloor.length < 3
+                        ? "border-red-500"
+                        : ""
+                    }`}
+                    type="text"
+                    placeholder={"Номер квартиры и этаж"}
+                    value={formState.flatAndFloor}
+                    onChange={(e) =>
+                      setFormState({
+                        ...formState,
+                        flatAndFloor: e.target.value,
                       })
                     }
                   />
