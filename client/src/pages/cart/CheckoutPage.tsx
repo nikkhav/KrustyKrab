@@ -232,25 +232,6 @@ const CheckoutPage = () => {
                 className={"flex flex-col items-center justify-center mt-3.5"}
               >
                 <div className={"flex flex-col items-center justify-center"}>
-                  <label className={"text-xl py-2"}>Телефон*</label>
-                  <input
-                    className={`py-2 px-8 rounded-3xl border-2 border-gray-100 shadow shadow-gray-200 ${
-                      wasSubmitted && formState.phone.length < 3
-                        ? "border-red-500"
-                        : ""
-                    }`}
-                    type="tel"
-                    placeholder={"Телефон"}
-                    value={formState.phone}
-                    onChange={(e) =>
-                      setFormState({
-                        ...formState,
-                        phone: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-                <div className={"flex flex-col items-center justify-center"}>
                   <label className={"text-xl py-2"}>Дом*</label>
                   <input
                     className={`py-2 px-8 rounded-3xl border-2 border-gray-100 shadow shadow-gray-200 ${
@@ -269,6 +250,26 @@ const CheckoutPage = () => {
                     }
                   />
                 </div>
+                <div className={"flex flex-col items-center justify-center"}>
+                  <label className={"text-xl py-2"}>Телефон*</label>
+                  <input
+                    className={`py-2 px-8 rounded-3xl border-2 border-gray-100 shadow shadow-gray-200 ${
+                      wasSubmitted && formState.phone.length < 3
+                        ? "border-red-500"
+                        : ""
+                    }`}
+                    type="tel"
+                    placeholder={"Телефон"}
+                    value={formState.phone}
+                    onChange={(e) =>
+                      setFormState({
+                        ...formState,
+                        phone: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+
                 <div className={"flex flex-col items-center justify-center"}>
                   <label className={"text-xl py-2"}>Комментарий к заказу</label>
                   <input
